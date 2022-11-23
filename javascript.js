@@ -20,13 +20,6 @@ function getComputerChoice() {
     }
 }
 
-// Test of computer choice
-console.log("Computer Choice test: " + getComputerChoice());
-console.log("Computer Choice test: " + getComputerChoice());
-console.log("Computer Choice test: " + getComputerChoice());
-console.log("Computer Choice test: " + getComputerChoice());
-console.log("Computer Choice test: " + getComputerChoice());
-
 // Returns the winner of the game
 function playRound(playerChoice, ComputerChoice) {
     if (playerChoice === ComputerChoice) {
@@ -43,7 +36,7 @@ function playRound(playerChoice, ComputerChoice) {
 }
 
 
-
+// Runs a game - get player input, check if valid, compare to computer to determine winner, increment winner score and repeat.
 function game() {
     let playerChoice = "none";
 
