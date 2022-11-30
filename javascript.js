@@ -1,4 +1,6 @@
 
+
+
 // Returns random number, even distribution between 1-3 including
 function getComputerChoice() {
     min = Math.ceil(1);
@@ -44,13 +46,13 @@ function game() {
     playerChoice = (prompt("Please enter \"Rock, Paper or Scissors\"")).toLowerCase();
 
     //Check if user input is correct, otherwise prompt again
-    while(playerChoice !== "rock" &&
-    playerChoice !== "paper" &&
-    playerChoice !== "scissors"){
+    while (playerChoice !== "rock" &&
+        playerChoice !== "paper" &&
+        playerChoice !== "scissors") {
         playerChoice = (prompt("You suck... Enter: \"Rock, Paper or Scissors\"")).toLowerCase();
     }
 
-    switch (playRound(playerChoice, getComputerChoice())){
+    switch (playRound(playerChoice, getComputerChoice())) {
         case "Player":
             playerWins++;
             console.log("The Player wins!");
@@ -65,11 +67,25 @@ function game() {
 
 }
 
-//Play 5 games
 let playerWins = 0;
 let computerWins = 0;
 
-for(let i=0; i<5; i++){
-    game();
-    console.log("The current score is: Player " + playerWins + " || Computer " + computerWins);
-}
+//event listener for clicks on button
+//Create const object for buttons
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        switch (button.id) {
+            case "rock":
+                return console.log(playRound(button.id, getComputerChoice()));
+            case "paper":
+                return console.log(playRound(button.id, getComputerChoice()));
+            case "scissors":
+                return console.log(playRound(button.id, getComputerChoice()));
+        }
+    });
+});
