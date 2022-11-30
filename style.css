@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(31, 31, 31);
+    display : flex;
+    flex-direction: column;
+    gap : 50px;
+}
+
+.button-container{
+    display : flex;
+
+    justify-content: space-around;
+}
+
+.header{
+    color: white;
+
+    display : flex;
+
+    justify-content: center;
+
+}
+
+button{
+   transition-duration: 0.4s;
+   background-color: rgb(31, 31, 31);
+   color : white;
+   padding : 15px 30px;
+   text-align : center;
+   text-decoration: none;
+   font-weight: 900;
+   border :2px solid white;
+   border-radius: 20px;
+   font-size: larger;
+   
+
+}
+button:hover{
+    background-color: rgb(185, 0, 0);
+}
+
+.game-stats-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

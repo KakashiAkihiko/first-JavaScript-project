@@ -1,4 +1,6 @@
 
+let playerWins = 0;
+let computerWins = 0;
 
 
 // Returns random number, even distribution between 1-3 including
@@ -27,12 +29,16 @@ function playRound(playerChoice, ComputerChoice) {
     if (playerChoice === ComputerChoice) {
         return "TIE! No one";
     } else if (playerChoice === "rock" && ComputerChoice === "scissors") {
+        playerWins++;
         return "Player";
     } else if (playerChoice === "paper" && ComputerChoice === "rock") {
+        playerWins++;
         return "Player";
     } else if (playerChoice === "scissors" && ComputerChoice === "paper") {
+        playerWins++;
         return "Player";
     } else {
+        computerWins++;
         return "Computer";
     }
 }
@@ -67,8 +73,6 @@ function game() {
 
 }
 
-let playerWins = 0;
-let computerWins = 0;
 
 //event listener for clicks on button
 //Create const object for buttons
@@ -81,11 +85,44 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         switch (button.id) {
             case "rock":
-                return console.log(playRound(button.id, getComputerChoice()));
+                console.log(playRound(button.id, getComputerChoice()));
+                updateScore();
+                return;
             case "paper":
-                return console.log(playRound(button.id, getComputerChoice()));
+                console.log(playRound(button.id, getComputerChoice()));
+                updateScore();
+                return;
             case "scissors":
-                return console.log(playRound(button.id, getComputerChoice()));
+                console.log(playRound(button.id, getComputerChoice()));
+                updateScore();
+                return;
         }
     });
 });
+
+//Get the container
+const statContainer = document.querySelector(".game-stats-container");
+
+//Create element
+const divScore = document.createElement("div");
+divScore.classList.add("stats");
+divScore.style.color = "white";
+
+//create winning stat element
+const divWinner = document.createElement("div");
+divWinner.style.color = "white";
+divWinner.style.fontSize = "x-arge";
+
+
+statContainer.appendChild(divScore);
+statContainer.appendChild(divWinner);
+
+function updateScore(){
+    divScore.textContent = "Player " + playerWins +
+    " - " + computerWins + " Computer";
+    if(playerWins === 5){
+        divWinner.textContent = "PLAYER WINS!";
+    }else if(computerWins === 5){
+        divWinner.textContent = "COMPUTER WINS!";
+    }
+}
